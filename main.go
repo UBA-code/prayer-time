@@ -14,13 +14,13 @@ func main() {
 		city := os.Args[2]
 		fmt.Println("getting data ...")
 		fetchData(fmt.Sprintf("http://api.aladhan.com/v1/timingsByCity?city=%v&country=%v", city, country))
-		} else {
-			fmt.Println("usage: prayTime \"country\" \"city\"")
-		}
+	} else {
+		fmt.Println("usage: prayTime \"country\" \"city\"")
 	}
-	
-	func fetchData(apiUrl string) {
-		response, err := http.Get(apiUrl)
+}
+
+func fetchData(apiUrl string) {
+	response, err := http.Get(apiUrl)
 	checkError(err)
 	defer response.Body.Close()
 	if response.StatusCode != 200 {
